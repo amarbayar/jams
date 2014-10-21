@@ -7,6 +7,6 @@ import edu.mum.job.domain.JobApplication;
 
 
 public interface JobApplicationService {
-	void addJobApplication(JobApplication jobApplication);
-	List<Application> getAllJobApplications();
+	//void addJobApplication(JobApplication jobApplication);
+	//List<JobApplication> getAllJobApplications();
 }

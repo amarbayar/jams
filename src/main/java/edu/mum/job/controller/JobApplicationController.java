@@ -22,12 +22,12 @@ import edu.mum.job.service.JobApplicationService;
 public class JobApplicationController {
 	
 	@Autowired
-	private JobApplicationService applicationService;
+	private JobApplicationService jobApplicationService;
 	
 	
 	@RequestMapping()
 	public String list(Model model){		
-		model.addAttribute("applications",applicationService.getAllJobApplications());		
+		//model.addAttribute("applications",jobApplicationService.getAllJobApplications());		
 		return "applications";
 	}
 	
@@ -51,7 +51,7 @@ public class JobApplicationController {
 		//User user = userService.getUserDetailsByEmail(newUser.getEmail());
 		
 		
-		applicationService.addJobApplication(newJobApplication);
+		//jobApplicationService.addJobApplication(newJobApplication);
 		
 		return "forward:/";
 	}
