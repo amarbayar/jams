@@ -1,8 +1,10 @@
 package edu.mum.job.domain;
 
-import java.util.Date;
+import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /*
@@ -14,8 +16,8 @@ import javax.persistence.Id;
 @Entity(name="EVENT")
 public class Event {
 	@Id
-	private int id;
 	@Column(name="event_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long event_id;
 	@Column(name="event_title")
 	private String event_title;
@@ -29,12 +31,6 @@ public class Event {
 	private long event_appid;
 	
 	//Getters & Setters
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public long getEvent_id() {
 		return event_id;
 	}
