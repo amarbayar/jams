@@ -1,1 +1,12 @@
 /edu/
+<<<<<<< HEAD
+=======
+/log4j.properties
+/messages.properties
+/messages_fr.properties
+/populate.sql
+/recruiter.sql
+/RecruiterController.class
+/message.properties
+/messages_fr
+>>>>>>> 71085c2d5c6e688387f83d91540b743c55bbe478

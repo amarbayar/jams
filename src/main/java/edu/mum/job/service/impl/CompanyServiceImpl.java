@@ -16,14 +16,12 @@ public class CompanyServiceImpl implements CompanyService {
 	private CompanyRepository companyRepository;
 	
 	@Override
-	public void addCompany(Company company) {
-		// TODO Auto-generated method stub
+	public void addCompany(Company company) {		
 		companyRepository.save(company);
 	}
 
 	@Override
-	public List<Company> getAllCompany() {
-		// TODO Auto-generated method stub
+	public List<Company> getAllCompany() {		
 		return companyRepository.getAllCompany();
 	}
 
