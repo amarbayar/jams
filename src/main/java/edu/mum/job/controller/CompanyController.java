@@ -1,14 +1,15 @@
 package edu.mum.job.controller;
 
-import edu.mum.job.domain.Company;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import antlr.Parser;
+import edu.mum.job.domain.Company;
 import edu.mum.job.service.CompanyService;
 
 @Controller
@@ -35,6 +36,21 @@ public class CompanyController {
 	public String companyList(Model model){		
 		model.addAttribute("companies",companyService.getAllCompany());		
 		return "companies";
+	}
+	
+	@RequestMapping("/delete")
+	public String deleteCompany(@RequestParam("cid") String companyId)
+	{
+		int id = Integer.parseInt(companyId);
+		try{
+			companyService.deleteCompany(id);
+		}
+		catch(Exception ex)
+		{
+			System.out.print("eeeee msg"+ ex);
+			return "home";
+		}
+		return "redirect:/company/list";
 	}
 	
 	

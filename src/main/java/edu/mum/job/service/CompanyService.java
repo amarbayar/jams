@@ -3,10 +3,12 @@ package edu.mum.job.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.mum.job.domain.Company;
 
 @Service
+@Transactional
 public interface CompanyService 
 {
 	/*
@@ -29,5 +31,9 @@ public interface CompanyService
 	 * @see show new Data after update complete
 	 * */
 	void updateCompany(Company updateCompany);
+
+	void deleteCompany(int id);
+
+
 }
 

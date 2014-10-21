@@ -18,19 +18,6 @@ charset=ISO-8859-1">
 	</section>
 	<section class="container">	
 		<div class="row">
-			
-				<%-- <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
-					<div class="thumbnail">
-						<div class="caption">
-							<h3>Id: ${customer.id}</h3>
-							<p>First Name: ${customer.firstName}</p>
-							<p>Last Name: ${customer.lastName}</p>
-							<p>Age: ${customer.age}</p>
-							<p>EyeColor: ${customer.eyeColor}</p>
-						</div>
-					</div>
-				</div> --%>
-				
 				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="75%">
 					<thead>
 			            <tr>
