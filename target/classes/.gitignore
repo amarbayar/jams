@@ -1,2 +1,7 @@
+/create.sql
+/createCustomer.sql
 /edu/
-/recruiter.sql
+/log4j.properties
+/messages.properties
+/messages_fr.properties
+/populate.sql

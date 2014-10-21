@@ -8,9 +8,8 @@
 <body>
 <h4>
 		<a href="<spring:url value="/"></spring:url>">Home Page</a> |
-		<a href="<spring:url value="/company/add"></spring:url>">Add Company</a> |
-		<a href="<spring:url value="/event/add"></spring:url>">Add Event</a> |
-		<a href="<spring:url value="/recruiters/add"></spring:url>">Add Recruiter</a>
+		<a href="<spring:url value="/customers/add"></spring:url>">Add Customer</a>
+		<a href="<spring:url value="/company/add"></spring:url>">Add Company</a>
 </h4>
 
 <h5>
