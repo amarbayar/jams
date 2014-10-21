@@ -14,9 +14,6 @@
 		<a href="<spring:url value="/users/"></spring:url>">All Users</a>
 		<a href="<spring:url value="/event/add"></spring:url>">Add Event</a> |
 		<a href="<spring:url value="/recruiters/add"></spring:url>">Add Recruiter</a>
-
-		
-		
 </h4>
 
 <h5>
