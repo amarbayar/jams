@@ -1,6 +1,10 @@
 package edu.mum.job.domain;
 
 import java.io.Serializable;
+
+
+
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,8 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+
 
 @XmlRootElement
 @Entity(name = "JOBAPPLICATION")
@@ -46,7 +49,7 @@ public class JobApplication implements Serializable{
 	private int historyId;
 	
 	@Column(name = "applicationDate")
-	private Date applicationDate;
+	private String applicationDate;
 	
 	@Column(name = "refer")
 	private String refer;
@@ -99,10 +102,11 @@ public class JobApplication implements Serializable{
 	public void setHistoryId(int historyId) {
 		this.historyId = historyId;
 	}
-	public Date getApplicationDate() {
+	public String getApplicationDate() {
 		return applicationDate;
 	}
-	public void setApplicationDate(Date applicationDate) {
+	public void setApplicationDate(String applicationDate) {
+		System.out.println("applicationDate: "+applicationDate);
 		this.applicationDate = applicationDate;
 	}
 	public String getRefer() {

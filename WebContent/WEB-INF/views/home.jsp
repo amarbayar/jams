@@ -13,8 +13,9 @@
 		<a href="<spring:url value="/users/add"></spring:url>">Sign-UP</a> |
 		<a href="<spring:url value="/users/"></spring:url>">All Users</a>
 		<a href="<spring:url value="/event/add"></spring:url>">Add Event</a> |
-		<a href="<spring:url value="/recruiters/add"></spring:url>">Add Recruiter</a>
-		<a href="<spring:url value="/jobApplication/add"></spring:url>">Add Application</a>
+		<a href="<spring:url value="/recruiters/add"></spring:url>">Add Recruiter</a> |
+		<a href="<spring:url value="/jobApplication/add"></spring:url>">Add Application</a> |
+		<a href="<spring:url value="/jobApplication/"></spring:url>">Application List</a>
 
 		
 		

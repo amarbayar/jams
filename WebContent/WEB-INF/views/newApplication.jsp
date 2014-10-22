@@ -6,16 +6,48 @@
 <meta http-equiv="Content-Type" content="text/html;
 charset=ISO-8859-1">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-  <script>
-  $(function() {
-	    $( "#applicationDate" ).datepicker({
-	      changeMonth: true,
-	      changeYear: true
-	    });
-	  });  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#companyId').keyup(function() {
+			doAjaxPost();
+		});
+
+		$("#companyId").change(function() {
+			
+			doAjaxPost();
+		});
+
+	});
+
+	function doAjaxPost() {
+
+		$.ajax({
+			type : "post",
+			url : "http://localhost:8080/FinalProject/jobApplication/ajaxRequest",
+			data : 'companyId=' + $('#companyId').val(),
+			success : function(response) {
+				var select = '<select id="recruiterId" path="recruiterId">';
+				var option = '';
+
+				
+				/*$.each(response, function(index, value) {
+
+					option += '<option value='+value+'>' + value + '</option>';
+				});*/
+				//alert(response);
+				select = select + response + '</select>';
+
+				$('#recruiterId').html(select);
+
+			},
+			error : function(e) {
+				alert('Error: ' + e);
+			}
+		});
+	}
+</script>
 
 <title>Companies</title>
 </head>
@@ -51,12 +83,7 @@ charset=ISO-8859-1">
             		</form:select>  
             	</div>
 				
-					<!-- 
-					<div class="col-lg-10">
-						<form:input id="companyId" path="companyId" type="text" class="form:input-large" />
-						<form:errors path="companyId" cssClass="text-danger" />
-					</div> 
-					 -->
+
 				</div>
 				
 				<div class="form-group">
@@ -81,10 +108,6 @@ charset=ISO-8859-1">
             		</form:select>  	
             	</div>			
 				
-					<!--div class="col-lg-10">
-						<form:input id="status" path="status" type="text" class="form:input-large" />
-						<form:errors path="status" cssClass="text-danger" />
-					</div-->
 				</div>
 				
 				<div class="form-group">
@@ -95,10 +118,17 @@ charset=ISO-8859-1">
 
 					<div class="col-lg-10">
 						<form:select id="phaseId" path="phaseId" class="form:input-large">
-							<option value="1">Resume/Cover Letter</option>
-							<option value="2">Tech. Interview</option>
-							<option value="3">HR Interview</option>
-							<option value="4">Offer Letter</option>
+							<option value="">Select Application Phase</option>
+							<c:forEach items="${phases}" var="phase">
+								<c:choose>
+									<c:when test="${phase.phase_id == newJobApplication.phaseId}">
+										<option value="${phase.phase_id}" selected="selected">${phase.phase_type}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${phase.phase_id}">${phase.phase_type}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 							
 						</form:select>
 					</div>
@@ -116,6 +146,7 @@ charset=ISO-8859-1">
 				
 					<div class="col-lg-10">
 						<form:select id="priority" path="priority" class="form:input-large">
+							<option value="">Select Priority</option>
 							<option value="High">High</option>
 							<option value="Medium">Medium</option>
 							<option value="Low">Low</option>
@@ -137,9 +168,7 @@ charset=ISO-8859-1">
 				
 					<div class="col-lg-10">
 						<form:select id="recruiterId" path="recruiterId" class="form:input-large">
-							<option value="1">Recruiter 1</option>
-							<option value="2">Recruiter 2</option>
-							<option value="3">Recruiter 3</option>
+							<option value="">Select Recruiter</option>
 						</form:select>
 					</div>
 				
@@ -151,7 +180,10 @@ charset=ISO-8859-1">
 					</div-->
 				</div>
 				
-				<div class="form-group">
+				
+				<!--input type=hidden name="applicationDate" value="${currentDateTime}"/-->
+				
+				<!--div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="historyId">
 					<spring:message code="application.form.history"/>
 					</label>
@@ -160,9 +192,9 @@ charset=ISO-8859-1">
 						<form:input id="historyId" path="historyId" type="text" class="form:input-large" />
 						<form:errors path="historyId" cssClass="text-danger" />
 					</div>
-				</div>
+				</div-->
 				
-				<div class="form-group">
+				<!--div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="applicationDate">
 					<spring:message code="application.form.date"/>
 					</label>
@@ -171,7 +203,7 @@ charset=ISO-8859-1">
 						<form:input id="applicationDate" path="applicationDate" type="text" class="form:input-large" />
 						<form:errors path="applicationDate" cssClass="text-danger" />
 					</div>
-				</div>
+				</div-->
 				
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="refer">

@@ -33,7 +33,7 @@ public class History  implements Serializable{
 	private Integer app_id;
 
 	@Column(name = "phase_changed_date")
-	private Date phase_changed_date;
+	private String phase_changed_date;
 
 	public Integer getHistory_id() {
 		return history_id;
@@ -59,11 +59,11 @@ public class History  implements Serializable{
 		this.app_id = app_id;
 	}
 
-	public Date getPhase_changed_date() {
+	public String getPhase_changed_date() {
 		return phase_changed_date;
 	}
 
-	public void setPhase_changed_date(Date phase_changed_date) {
+	public void setPhase_changed_date(String phase_changed_date) {
 		this.phase_changed_date = phase_changed_date;
 	}
 

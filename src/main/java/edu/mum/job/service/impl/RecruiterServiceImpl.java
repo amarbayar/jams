@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.mum.job.domain.JobApplication;
 import edu.mum.job.domain.Recruiter;
 import edu.mum.job.repository.RecruiterRepository;
 import edu.mum.job.service.RecruiterService;
@@ -26,6 +27,12 @@ public class RecruiterServiceImpl implements RecruiterService {
 	@Override
 	public List<Recruiter> getAllRecruiter(){
 		return recruiterRepository.getAllRecruiters();
+	}
+
+	@Override
+	public List<Recruiter> getAllRecruiterByCompanyId(String companyId) {
+		System.out.println("companyId: "+companyId);
+		return recruiterRepository.getAllRecruiterByCompanyId(Integer.parseInt(companyId));		
 	}
 	
 }

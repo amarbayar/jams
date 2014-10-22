@@ -25,84 +25,44 @@ charset=ISO-8859-1">
 	</section>
 	<section class="container">	
 		<div class="row">
-				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="75%">
-					<thead>
-			            <tr>
-			                <th>Company Id</th>
-			                <th>Job Title</th>
-			                <th>Status</th>
-			                <th>Phase</th>
-			                <th>Recruiter</th>
-			                <th>History</th>
-			                <th>Date</th>
-			                <th>Refer</th>			                
-			            </tr>
-	        		</thead>
-	        		<tbody>
-	        		
-	            	<tr>
-		                <td>${applicationDetails.companyId}</td>
-		                <td>${applicationDetails.jobTitile}</td>
-		                <td>${applicationDetails.status}</td>
-		                <td>${applicationDetails.phaseId}</td>
-		                <td>${applicationDetails.priority}</td>
-		                <td>${applicationDetails.recruiterId}</td>
-		                <td>${applicationDetails.applicationDate}</td>
-		                <td>${applicationDetails.refer}</td>		                		                
-	            	</tr>
-	            	
-            	</tbody>
+		
+				<table id="example" class="table table-striped table-bordered">
+					    	<tr><th>Company</th><td>${applicationDetails.companyId}</td></tr>
+			            	<tr><th>Job Title</th><td>${applicationDetails.jobTitile}</td></tr>
+			                <tr><th>Status</th><td>${applicationDetails.phaseId}</td></tr>
+			                <tr><th>Phase</th><td>${applicationDetails.priority}</td></tr>
+			                <tr><th>Recruiter</th><td>${applicationDetails.recruiterId}</td></tr>			                
+			                <tr><th>Date</th><td>${applicationDetails.applicationDate}</td></tr>
+			                <tr><th>Refer</th><td>${applicationDetails.refer}</td></tr>	                
 			</table>
-			
-			
-			
-			
 		</div>
 		
 		
 
 
 
-
+		<h3>History</h3>
 
 
 
 		<div class="row">
-				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="75%">
+				<table id="example" class="table table-striped table-bordered">
 					<thead>
 			            <tr>
-			                <th>Company Id</th>
-			                <th>Job Title</th>
-			                <th>Status</th>
 			                <th>Phase</th>
-			                <th>Recruiter</th>
-			                <th>History</th>
-			                <th>Date</th>
-			                <th>Refer</th>
-			                <th>Action</th>			                
+			                <th>Modification Date</th>			                
 			            </tr>
 	        		</thead>
 	        		<tbody>
-	        		
+	        		<c:forEach items="${histories}" var="history">
 	            	<tr>
-		                <td>${applicationDetails.companyId}</td>
-		                <td><a href="<spring:url value="/jobApplication/details/${application.id}" />"> ${application.jobTitile}</a></td>
-		                <td>${applicationDetails.status}</td>
-		                <td>${applicationDetails.phaseId}</td>
-		                <td>${applicationDetails.priority}</td>
-		                <td>${applicationDetails.recruiterId}</td>
-		                <td>${applicationDetails.applicationDate}</td>
-		                <td>${applicationDetails.refer}</td>
-		                <td>${applicationDetails.refer}</td>
-		                
+		                <td>${history.phase_id}</td>
+		                <td>${history.phase_changed_date}</td>
 	            	</tr>
+	            	</c:forEach>
 	            	
             	</tbody>
 			</table>
-			
-			
-			
-			
 		</div>
 
 

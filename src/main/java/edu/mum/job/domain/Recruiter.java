@@ -15,6 +15,12 @@ public class Recruiter{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	@Override
+	public String toString() {
+		return "Recruiter [id=" + id + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", address=" + address
+				+ ", email=" + email + "]";
+	}
 	@Column(name = "recuiter_firstName")
 	private String firstName;
 	
@@ -27,6 +33,8 @@ public class Recruiter{
 	
 	@Column(name = "recruiter_email")
 	private String email;
+	
+	private int company_id;
 	
 	
 	public String getFirstName() {
@@ -58,6 +66,12 @@ public class Recruiter{
 	}
 	public int getId() {
 		return id;
+	}
+	public int getCompany_id() {
+		return company_id;
+	}
+	public void setCompany_id(int company_id) {
+		this.company_id = company_id;
 	}
 	
 

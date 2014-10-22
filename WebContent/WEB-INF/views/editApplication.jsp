@@ -7,17 +7,48 @@
 charset=ISO-8859-1">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<script>
-  $(function() {
-	    $( "#applicationDate" ).datepicker({
-	      changeMonth: true,
-	      changeYear: true
-	    });
-	  });  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#companyId').keyup(function() {
+			doAjaxPost();
+		});
+
+		$("#companyId").change(function() {
+			
+			doAjaxPost();
+		});
+
+	});
+
+	function doAjaxPost() {
+
+		$.ajax({
+			type : "post",
+			url : "http://localhost:8080/FinalProject/jobApplication/ajaxRequest",
+			data : 'companyId=' + $('#companyId').val(),
+			success : function(response) {
+				var select = '<select id="recruiterId" path="recruiterId">';
+				var option = '';
+
+				
+				/*$.each(response, function(index, value) {
+
+					option += '<option value='+value+'>' + value + '</option>';
+				});*/
+				//alert(response);
+				select = select + response + '</select>';
+
+				$('#recruiterId').html(select);
+
+			},
+			error : function(e) {
+				alert('Error: ' + e);
+			}
+		});
+	}
+</script>
 
 <title>Companies</title>
 </head>
@@ -190,7 +221,7 @@ charset=ISO-8859-1">
 					</div-->
 				</div>
 
-				<div class="form-group">
+				<!--div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="historyId">
 						<spring:message code="application.form.history" />
 					</label>
@@ -200,7 +231,7 @@ charset=ISO-8859-1">
 							class="form:input-large" />
 						<form:errors path="historyId" cssClass="text-danger" />
 					</div>
-				</div>
+				</div-->
 
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2"
@@ -210,7 +241,7 @@ charset=ISO-8859-1">
 
 					<div class="col-lg-10">
 						<form:input id="applicationDate" path="applicationDate"
-							type="text" class="form:input-large" />
+							type="text" class="form:input-large"  readonly="true"/>
 						<form:errors path="applicationDate" cssClass="text-danger" />
 					</div>
 				</div>
