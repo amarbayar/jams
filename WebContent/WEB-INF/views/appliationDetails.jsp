@@ -1,28 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html;
-charset=ISO-8859-1">
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Applications</title>
-
-
-
-</head>
-<body>
-	<section>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Applications</h1>
-				<p>List of all Application</p>
-			</div>
-		</div>
-	</section>
+<%@ include file="top.jsp" %> 
 	<section class="container">	
 		<div class="row">
 				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="75%">
@@ -53,20 +29,8 @@ charset=ISO-8859-1">
 	            	
             	</tbody>
 			</table>
-			
-			
-			
-			
+
 		</div>
-		
-		
-
-
-
-
-
-
-
 		<div class="row">
 				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="75%">
 					<thead>
@@ -93,28 +57,10 @@ charset=ISO-8859-1">
 		                <td>${applicationDetails.recruiterId}</td>
 		                <td>${applicationDetails.applicationDate}</td>
 		                <td>${applicationDetails.refer}</td>
-		                <td>${applicationDetails.refer}</td>
-		                
-	            	</tr>
-	            	
+		                <td>${applicationDetails.refer}</td>		                
+	            	</tr>	            	
             	</tbody>
-			</table>
-			
-			
-			
-			
-		</div>
-
-
-
-
-
-
-
-
-
-		
-		
+			</table>			
+		</div>	
 	</section>
-</body>
-</html>
+<%@ include file="bottom.jsp" %>

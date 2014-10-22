@@ -30,12 +30,12 @@ public class EventController {
 		return "events";
 	}
 	
-	@RequestMapping(value="/new", method=RequestMethod.GET)
+	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String initScheduleEvent(@ModelAttribute("newEvent") Event newEvent){
 		return "addEvent";
 	}
 	
-	@RequestMapping(value="/new", method=RequestMethod.POST)
+	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public String scheduleEvent(@ModelAttribute("newEvent") Event newEvent){
 		System.out.println("inside POST!");
 		eventService.scheduleEvent(newEvent);

@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-
 import edu.mum.job.domain.Recruiter;
-import edu.mum.job.service.PhaseService;
+
 import edu.mum.job.service.RecruiterService;
 
 
@@ -22,18 +21,11 @@ public class RecruiterController {
 	@Autowired
 	private RecruiterService recruiterService;
 	
-	@Autowired
-	private PhaseService p;
-	
 	@RequestMapping()
 	public String list(Model model){		
-		model.addAttribute("recruiters",recruiterService.getAllRecruiter());	
-		
-		System.out.println(p.getPhase(1).getPhase_type());
-		
+		model.addAttribute("recruiters",recruiterService.getAllRecruiter());		
 		return "recruiters";
 	}
-	
 	
 	@RequestMapping(value="/add", method = RequestMethod.GET)
 	public String getAddNewCustomerForm(@ModelAttribute("newRecruiter") Recruiter newRecruiter){
@@ -46,6 +38,4 @@ public class RecruiterController {
 		recruiterService.addRecruiter(newRecruiter);
 		return "redirect:/recruiters";
 	}
-	
-
 }

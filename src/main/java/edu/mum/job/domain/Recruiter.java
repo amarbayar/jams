@@ -13,6 +13,7 @@ public class Recruiter{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
 	private int id;
 	
 	@Column(name = "recuiter_firstName")
@@ -21,13 +22,11 @@ public class Recruiter{
 	@Column(name = "recuiter_lastName")
 	private String lastName;
 	
-
 	@Column(name = "recruiter_address")
 	private String address;
 	
 	@Column(name = "recruiter_email")
 	private String email;
-	
 	
 	public String getFirstName() {
 		return firstName;
