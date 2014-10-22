@@ -1,2 +1,3 @@
 WebContent/WEB-INF/applicationContext.xml
 WebContent/WEB-INF/applicationContext.xml
+target/classes/edu/mum/job/domain/Recruiter.class
