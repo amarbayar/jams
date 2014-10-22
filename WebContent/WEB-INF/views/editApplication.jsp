@@ -36,29 +36,26 @@ charset=ISO-8859-1">
 
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for=companyId>
-					<spring:message code="application.form.companyName"/>
+						<spring:message code="application.form.companyName" />
 					</label>
-				<div class="col-lg-10">
-				
-				
-		
-				
-					<form:select id="companyId" path="companyId" class="form:input-large">  
-                		<option value="">Select Company</option>
-                		<c:forEach items="${companies}" var = "company">
-                		<option value="${company.id}">${company.name}</option>
-                		</c:forEach>
-            		</form:select>  
-            	</div>
-				
-					<!-- 
 					<div class="col-lg-10">
-						<form:input id="companyId" path="companyId" type="text" class="form:input-large" />
-						<form:errors path="companyId" cssClass="text-danger" />
-					</div> 
-					 -->
+						<form:select id="companyId" path="companyId"
+							class="form:input-large">
+							<option value="">Select Company</option>							
+							<c:forEach items="${companies}" var="company">
+								<c:choose>
+									<c:when test="${company.id == newJobApplication.companyId}">
+										<option value="${company.id}" selected="selected">${company.name}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${company.id}">${company.name}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>							
+						</form:select>
+					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="jobTitile">
 					<spring:message code="application.form.jobTitle"/>
@@ -74,17 +71,27 @@ charset=ISO-8859-1">
 					<label class="control-label col-lg-2 col-lg-2" for="status">
 					<spring:message code="application.form.status"/>
 					</label>
-				<div class="col-lg-10">
-					<form:select id="status" path="status" class="form:input-large">  
-                		<option value="Active">Active</option>
-                		<option value="InActive">InActive</option>
-            		</form:select>  	
-            	</div>			
-				
-					<!--div class="col-lg-10">
-						<form:input id="status" path="status" type="text" class="form:input-large" />
-						<form:errors path="status" cssClass="text-danger" />
-					</div-->
+					<div class="col-lg-10">
+						<form:select id="status" path="status" class="form:input-large">
+
+							<c:choose>
+								<c:when test="${'Active' == newJobApplication.status}">
+									<option value="Active" selected="selected">Active</option>
+									<option value="InActive">InActive</option>
+								</c:when>
+								<c:otherwise>
+									<option value="Active">Active</option>
+									<option value="InActive" selected="selected">InActive</option>
+								</c:otherwise>
+						
+
+							</c:choose>
+
+
+							
+						</form:select>
+					</div>
+
 				</div>
 				
 				<div class="form-group">
@@ -185,7 +192,7 @@ charset=ISO-8859-1">
 				</div>
 				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"/>
+						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Edit"/>
 					</div>
 				</div>
 				
