@@ -3,6 +3,7 @@ package edu.mum.job.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,5 +28,12 @@ public class RecruiterServiceImpl implements RecruiterService {
 	public List<Recruiter> getAllRecruiter(){
 		return recruiterRepository.getAllRecruiters();
 	}
+	
+	@Override
+	public Recruiter getRecruiter(Integer recruiterID){
+		
+		return recruiterRepository.getRecruiter(recruiterID);
+	}
+	
 	
 }

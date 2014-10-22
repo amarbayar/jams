@@ -25,11 +25,14 @@ public class RecruiterController {
 	@Autowired
 	private PhaseService p;
 	
+	
 	@RequestMapping()
 	public String list(Model model){		
 		model.addAttribute("recruiters",recruiterService.getAllRecruiter());	
 		
-		System.out.println(p.getPhase(1).getPhase_type());
+		//System.out.println(p.getPhase(1).getPhase_type());
+		//System.out.println(recruiterService.getRecruiter(1).getEmail());
+		
 		
 		return "recruiters";
 	}

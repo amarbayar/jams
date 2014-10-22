@@ -13,7 +13,9 @@ public class Recruiter{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	
+	@Column(name = "id")
+	private Integer id;
 	
 	@Column(name = "recuiter_firstName")
 	private String firstName;
@@ -41,7 +43,7 @@ public class Recruiter{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getAddress() {
@@ -56,7 +58,7 @@ public class Recruiter{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	
