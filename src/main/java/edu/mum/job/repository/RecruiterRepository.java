@@ -15,5 +15,8 @@ public interface RecruiterRepository extends CrudRepository<Recruiter, String> {
     @Query("SELECT c FROM RECRUITER c")
 	public List<Recruiter> getAllRecruiters();
 
+    @Query("SELECT c FROM RECRUITER c where c.id = ?1")
+	public Recruiter getRecruiter(Integer id);
+
 
 }

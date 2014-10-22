@@ -42,10 +42,28 @@ charset=ISO-8859-1">
 	        		<tbody>
 	        		<c:forEach items="${applications}" var = "application">
 	            	<tr>
-		                <td>${application.companyId}</td>
+	            	<td>
+							<c:forEach items="${companies}" var="company">
+									<c:if test="${company.id == application.companyId}">
+										${company.name}
+									</c:if>
+							</c:forEach>
+	            		</td>
+		                
+		            
+		            
 		                <td><a href="<spring:url value="/jobApplication/details/${application.id}" />"> ${application.jobTitile}</a></td>
 		                <td>${application.status}</td>
-		                <td>${application.phaseId}</td>
+		                <td>
+							<c:forEach items="${phases}" var="phase">
+									<c:if test="${phase.phase_id == application.phaseId}">
+										${phase.phase_type}
+									</c:if>
+							</c:forEach>
+
+
+		                ${application.phaseId}
+		                </td>
 		                <td>${application.priority}</td>
 		                <td>${application.recruiterId}</td>
 		                <td>${application.applicationDate}</td>

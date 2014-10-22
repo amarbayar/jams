@@ -1,5 +1,7 @@
 package edu.mum.job.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,11 @@ public class PhaseServiceImpl implements PhaseService {
 	@Override
 	public Phase getPhase(int phaseID) {
 		return phaseRepository.getPhase(phaseID);
+	}
+
+	@Override
+	public List<Phase> getAllPhase() {		
+		return phaseRepository.getAllPhase();
 	}
 	
 	

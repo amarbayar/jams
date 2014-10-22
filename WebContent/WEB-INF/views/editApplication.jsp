@@ -5,11 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;
 charset=ISO-8859-1">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-  <script>
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script>
   $(function() {
 	    $( "#applicationDate" ).datepicker({
 	      changeMonth: true,
@@ -29,7 +31,8 @@ charset=ISO-8859-1">
 		</div>
 	</section>
 	<section class="container">
-		<form:form modelAttribute="newJobApplication" class="form-horizontal">
+		<form:form modelAttribute="newJobApplication" action="/FinalProject/jobApplication/update/${newJobApplication.id}" 
+		class="form-horizontal">
 
 			<fieldset>
 				<legend>Add new Application</legend>
@@ -41,7 +44,6 @@ charset=ISO-8859-1">
 					<div class="col-lg-10">
 						<form:select id="companyId" path="companyId"
 							class="form:input-large">
-							<option value="">Select Company</option>							
 							<c:forEach items="${companies}" var="company">
 								<c:choose>
 									<c:when test="${company.id == newJobApplication.companyId}">
@@ -51,25 +53,26 @@ charset=ISO-8859-1">
 										<option value="${company.id}">${company.name}</option>
 									</c:otherwise>
 								</c:choose>
-							</c:forEach>							
+							</c:forEach>
 						</form:select>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="jobTitile">
-					<spring:message code="application.form.jobTitle"/>
+						<spring:message code="application.form.jobTitle" />
 					</label>
-				
+
 					<div class="col-lg-10">
-						<form:input id="jobTitile" path="jobTitile" type="text" class="form:input-large" />
+						<form:input id="jobTitile" path="jobTitile" type="text"
+							class="form:input-large" />
 						<form:errors path="jobTitile" cssClass="text-danger" />
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="status">
-					<spring:message code="application.form.status"/>
+						<spring:message code="application.form.status" />
 					</label>
 					<div class="col-lg-10">
 						<form:select id="status" path="status" class="form:input-large">
@@ -83,121 +86,155 @@ charset=ISO-8859-1">
 									<option value="Active">Active</option>
 									<option value="InActive" selected="selected">InActive</option>
 								</c:otherwise>
-						
+
 
 							</c:choose>
 
 
-							
+
 						</form:select>
 					</div>
 
 				</div>
-				
+
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="phaseId">
-					<spring:message code="application.form.phase"/>
+						<spring:message code="application.form.phase" />
 					</label>
 
 
 					<div class="col-lg-10">
 						<form:select id="phaseId" path="phaseId" class="form:input-large">
-							<option value="1">Resume/Cover Letter</option>
-							<option value="2">Tech. Interview</option>
-							<option value="3">HR Interview</option>
-							<option value="4">Offer Letter</option>
-							
+							<c:forEach items="${phases}" var="phase">
+								<c:choose>
+									<c:when test="${phase.phase_id == newJobApplication.phaseId}">
+										<option value="${phase.phase_id}" selected="selected">${phase.phase_type}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${phase.phase_id}">${phase.phase_type}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 						</form:select>
+						
 					</div>
 
-					<!--div class="col-lg-10">
-						<form:input id="phaseId" path="phaseId" type="text" class="form:input-large" />
-						<form:errors path="phaseId" cssClass="text-danger" />
-					</div-->
 				</div>
-				
+
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="priority">
-					<spring:message code="application.form.priority"/>
+						<spring:message code="application.form.priority" />
 					</label>
-				
+
 					<div class="col-lg-10">
-						<form:select id="priority" path="priority" class="form:input-large">
-							<option value="High">High</option>
-							<option value="Medium">Medium</option>
-							<option value="Low">Low</option>
+
+						
+						
+						<form:select id="priority" path="priority" class="form:input-large">							
+								<c:choose>
+									<c:when test="${'High' == newJobApplication.priority}">
+										<option value="High" selected=selected>High</option>
+										<option value="Medium">Medium</option>
+										<option value="Low">Low</option>
+									</c:when>
+									<c:when test="${'Medium' == newJobApplication.priority}">
+										<option value="High">High</option>
+										<option value="Medium" selected=selected>Medium</option>
+										<option value="Low">Low</option>
+									</c:when>
+									<c:otherwise>
+										<option value="High">High</option>
+										<option value="Medium">Medium</option>
+										<option value="Low" selected=selected>Low</option>
+									</c:otherwise>
+								</c:choose>
+							
 						</form:select>
+						
+						
+						
+						
 					</div>
 
-
-
-					<!-- div class="col-lg-10">
-						<form:input id="priority" path="priority" type="text" class="form:input-large" />
-						<form:errors path="priority" cssClass="text-danger" />
-					</div-->
 				</div>
-				
+
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="recruiterId">
-					<spring:message code="application.form.recruiter"/>
+						<spring:message code="application.form.recruiter" />
 					</label>
-				
+
 					<div class="col-lg-10">
+						
 						<form:select id="recruiterId" path="recruiterId" class="form:input-large">
-							<option value="1">Recruiter 1</option>
-							<option value="2">Recruiter 2</option>
-							<option value="3">Recruiter 3</option>
+							<c:forEach items="${recruiters}" var="recruiter">
+								<c:choose>
+									<c:when test="${recruiter.id == newJobApplication.phaseId}">
+										<option value="${recruiter.id}" selected="selected">${recruiter.firstName}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${recruiter.id}">${recruiter.firstName}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 						</form:select>
+						
+						
+						
 					</div>
-				
-				
-				
+
+
+
 					<!--div class="col-lg-10">
 						<form:input id="recruiterId" path="recruiterId" type="text" class="form:input-large" />
 						<form:errors path="recruiterId" cssClass="text-danger" />
 					</div-->
 				</div>
-				
+
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="historyId">
-					<spring:message code="application.form.history"/>
+						<spring:message code="application.form.history" />
 					</label>
-				
+
 					<div class="col-lg-10">
-						<form:input id="historyId" path="historyId" type="text" class="form:input-large" />
+						<form:input id="historyId" path="historyId" type="text"
+							class="form:input-large" />
 						<form:errors path="historyId" cssClass="text-danger" />
 					</div>
 				</div>
-				
+
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="applicationDate">
-					<spring:message code="application.form.date"/>
+					<label class="control-label col-lg-2 col-lg-2"
+						for="applicationDate"> <spring:message
+							code="application.form.date" />
 					</label>
-				
+
 					<div class="col-lg-10">
-						<form:input id="applicationDate" path="applicationDate" type="text" class="form:input-large" />
+						<form:input id="applicationDate" path="applicationDate"
+							type="text" class="form:input-large" />
 						<form:errors path="applicationDate" cssClass="text-danger" />
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<label class="control-label col-lg-2 col-lg-2" for="refer">
-					<spring:message code="application.form.notes"/>
+						<spring:message code="application.form.notes" />
 					</label>
-				
+
 					<div class="col-lg-10">
-						<form:input id="refer" path="refer" type="text" class="form:input-large" />
+						<form:input id="refer" path="refer" type="text"
+							class="form:input-large" />
 						<form:errors path="refer" cssClass="text-danger" />
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Edit"/>
+						<input type="submit" id="btnAdd" class="btn btn-primary"
+							value="Edit" />
 					</div>
 				</div>
-				
-				
-				
+
+
+
 			</fieldset>
 		</form:form>
 	</section>

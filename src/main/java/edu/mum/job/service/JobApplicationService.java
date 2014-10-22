@@ -11,8 +11,11 @@ import edu.mum.job.domain.JobApplication;
 @Service
 @Transactional
 public interface JobApplicationService {
-	void addJobApplication(JobApplication jobApplication);
+	JobApplication addJobApplication(JobApplication jobApplication);
 	List<JobApplication> getAllJobApplications();
 	JobApplication getJobApplicationById(String id);
+	public JobApplication update(JobApplication updated);
+	public JobApplication delete(JobApplication deleted);
+	
 	
 }
