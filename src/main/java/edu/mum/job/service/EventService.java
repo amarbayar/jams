@@ -1,3 +1,7 @@
+/**
+ * @author Amar
+ */
+
 package edu.mum.job.service;
 
 import java.util.List;
@@ -6,25 +10,38 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.mum.job.domain.Event;
 
-/*
- * Service interface for the event-related methods
- * The implementing class is: EventServiceImpl
- * By Amarbayar. A
- * */
 
 public interface EventService {
-	//Function to schedule new event. 
+	/**
+	 * 
+	 * @param newEvent Function to schedule new event.
+	 */
 	public void scheduleEvent(Event newEvent);
 	
-	//Function to remove an existing event by its ID
+	/**
+	 * 
+	 * @param newEvent Function to remove an existing event by its ID
+	 */
 	public void removeEvent(Event newEvent);
 	
-	//Function to update an existing event with updated information
+	
+	/**
+	 * 
+	 * @param updatedEvent Function to update an existing event with updated information
+	 */
 	public void updateEvent(Event updatedEvent);
 	
-	//Function to retrieve all the events
+	
+	/**
+	 * 
+	 * @return Function to retrieve all the events
+	 */
 	public List<Event> getEvents();
 	
-	//Function to retrieve a specific event
+	/**
+	 * 
+	 * @param eventID
+	 * @return Function to retrieve a specific event
+	 */
 	public Event getEvent(long eventID);
 }

@@ -1,3 +1,9 @@
+/**
+ * 
+ * @author Shohrab
+ *
+ */
+
 package edu.mum.job.service;
 
 import java.util.List;
@@ -9,33 +15,32 @@ import edu.mum.job.domain.Company;
 
 @Service
 @Transactional
+
+
 public interface CompanyService 
 {
-	/*
-	 * @param new company object pass from controller
-	 * @return no return. Will add company into DB
-	 * @see new company added into list
-	 * */
+	/**
+	 * 
+	 * @param company Add new company
+	 */
 	void addCompany(Company company);
 	
-	/*
-	 * @param No Parameter required
-	 * @return A list of Company 
-	 * @see show company list
-	 * */
+	/**
+	 * 
+	 * @return list of company objects
+	 */
 	List<Company>getAllCompany();
 	
-	/*
-	 * @param Update company object with update data
-	 * @return No retrun. Effect only DB based on Companny ID
-	 * @see show new Data after update complete
-	 * */
+	/**
+	 * 
+	 * @param updateCompany update company using update Objects
+	 */
 	void updateCompany(Company updateCompany);
-
+	
+	/**
+	 * 
+	 * @param id delete a company
+	 */
 	void deleteCompany(int id);
-
-	//10-22-14 by Amarbayar. A 
-	//Adding findOne() to retrieve a specific company
-//	Company getCompanyById(String id);
 }
 

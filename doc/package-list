@@ -1,0 +1,6 @@
+edu.mum.job.controller
+edu.mum.job.domain
+edu.mum.job.repository
+edu.mum.job.repository.impl
+edu.mum.job.service
+edu.mum.job.service.impl
