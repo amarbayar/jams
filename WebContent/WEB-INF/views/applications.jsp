@@ -22,6 +22,7 @@
 			</section>
 			<!-- Plug main content here -->
 			<!-- ====================== -->
+			<br><br>
 			<section class="container">
 			    <div class="row">
 					<table id="example" class="table table-striped table-bordered" cellspacing="0" width="75%">

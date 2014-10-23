@@ -29,7 +29,7 @@ public class RecruiterController {
 	public String list(Model model){		
 		model.addAttribute("recruiters",recruiterService.getAllRecruiter());	
 		
-		System.out.println(p.getPhase(1).getPhase_type());
+		//System.out.println(p.getPhase(1).getPhase_type());
 		
 		return "recruiters";
 	}

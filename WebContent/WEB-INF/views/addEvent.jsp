@@ -25,7 +25,7 @@
 			<!-- ====================== -->
 			<section class="container">
 			<br><br>
-			    	<form:form modelAttribute="newEvent" action="/FinalProject/events/new" method="post" class="form-horizontal" id="form_fill">
+			    	<form:form modelAttribute="newEvent" action="/FinalProject/events/add" method="post" class="form-horizontal" id="form_fill">
 						<fieldset>
 								<legend>New Schedule:</legend>
 								<div class="form-group">

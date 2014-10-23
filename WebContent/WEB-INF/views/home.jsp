@@ -257,7 +257,8 @@
 			
 		</aside>
 	</div>
-</body>        
+</body>     
+<br><br>   
 <%@ include file="_scripts.jsp" %>
 <%@ include file="_footer.jsp" %>
 </body>

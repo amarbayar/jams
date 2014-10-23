@@ -55,7 +55,7 @@
 				        </table>
 					</div>
 				</div>
-				<form action="/FinalProjct/events/add">
+				<form action="/FinalProject/events/add">
 					<div class="form-group">
 						<div class="pull-right">
 							<input type="submit" id="btnAdd" class="btn btn-success" value="Add Schedule" />

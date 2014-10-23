@@ -13,6 +13,12 @@
 		    </a>
 		    <div class="navbar-right">
 		        <ul class="nav navbar-nav">
+		        	<li>
+		        		<a href="/FinalProject/languages/en">English</a>
+		        	</li>
+		        	<li>
+		        		<a href="/FinalProject/languages/fr">French</a>
+		        	</li>
 		            <!-- Tasks: style can be found in dropdown.less -->
 		            <li class="dropdown tasks-menu">
 		                <a href="#" class="dropdown-toggle" data-toggle="dropdown">

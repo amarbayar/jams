@@ -25,6 +25,7 @@
 			<!-- Plug main content here -->
 			<!-- ====================== -->
 			<section class="container">
+			<br><br>
 				<div class="row">
 				Job Title: <b>${applicationDetails.jobTitile}</b>
 				<br />
