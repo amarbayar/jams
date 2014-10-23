@@ -1,6 +1,7 @@
 package edu.mum.job.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +41,11 @@ public class UserController {
 
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String getHomePage(@ModelAttribute("loginForm") User loginForm){		
-		return "login";
+	public String getHomePage(@ModelAttribute("loginForm") User loginForm, HttpServletRequest request){
+		if(request.getSession().getAttribute("loggedUser") == null)
+			return "login";
+		else
+			return "home";
 	}
 
 	
@@ -55,8 +59,9 @@ public class UserController {
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public String processLoginForm(Model model,@ModelAttribute("loginForm") @Valid User loginForm, 
-			BindingResult result){
-		
+			BindingResult result, HttpServletRequest request){
+		//10-22-14 by Amarbayar. A
+		//Adding state management to keep track of user's logged in status
 		
 		if(result.hasErrors()){
 			System.out.println("Error...");
@@ -66,14 +71,16 @@ public class UserController {
 		
 		/*Login Success*/
 		if(userService.checkLogin(loginForm.getEmail(),loginForm.getPassword()) != null){
+			System.out.println("Successful login " + userService.getUserDetailsByEmail(loginForm.getEmail()).getFirstName());
 			model.addAttribute("messageNotification","Login Successfull");
+			request.getSession().setAttribute("loggedUser", userService.getUserDetailsByEmail(loginForm.getEmail()));
 		}
 		else{
-			model.addAttribute("messageNotification","Sorry!!! Login Failed");			
+			System.out.println("Failed login");
+			model.addAttribute("messageNotification","Sorry!!! Login Failed");
+			request.getSession().removeAttribute("loggedUser");
 		}
-		
-		
-		return "forward:/";
+		return "home";
 	}
 	
 	
@@ -110,10 +117,15 @@ public class UserController {
 		
 		userService.addUser(newUser);
 		
-		return "forward:/";
+		return "forward:/users/login";
 	}
 	
-
-	
-
+	//10-22-14 by Amarbayar. A
+	//Adding logic to log user out
+	@RequestMapping(value="/logout")
+	public String logoutUser(Model model, HttpServletRequest request){
+		System.out.println("Logged user out");
+		request.getSession().removeAttribute("loggedUser");
+		return "forward:/";
+	}
 }

@@ -12,13 +12,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.mum.job.domain.Event;
+import edu.mum.job.domain.JobApplication;
+import edu.mum.job.service.CompanyService;
 import edu.mum.job.service.EventService;
+import edu.mum.job.service.JobApplicationService;
 
 @Controller
 @RequestMapping("/events")
 public class EventController {
 	@Autowired
 	EventService eventService;
+	
+	@Autowired
+	JobApplicationService jobApplicationService;
+	
+	@Autowired
+	CompanyService companyService;
 	
 	@RequestMapping
 	public String getAllEvents(Model model){
@@ -30,12 +39,16 @@ public class EventController {
 		return "events";
 	}
 	
-	@RequestMapping(value="/new", method=RequestMethod.GET)
-	public String initScheduleEvent(@ModelAttribute("newEvent") Event newEvent){
+	@RequestMapping(value="/add", method=RequestMethod.GET)
+	public String initScheduleEvent(@ModelAttribute("newEvent") Event newEvent, Model model){
+//		List<JobApplication> ja = jobApplicationService.getAllJobApplications();
+//		for(JobApplication j : ja){
+//			model.addAttribute("applications", j.getJobTitile() + " - " + companyService.getCompanyById(Integer.toString(j.getCompanyId())));
+//		}
 		return "addEvent";
 	}
 	
-	@RequestMapping(value="/new", method=RequestMethod.POST)
+	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public String scheduleEvent(@ModelAttribute("newEvent") Event newEvent){
 		System.out.println("inside POST!");
 		eventService.scheduleEvent(newEvent);

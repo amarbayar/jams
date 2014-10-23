@@ -34,8 +34,8 @@ public class Recruiter{
 	@Column(name = "recruiter_email")
 	private String email;
 	
-	private int company_id;
 	
+	private int company_id;
 	
 	public String getFirstName() {
 		return firstName;

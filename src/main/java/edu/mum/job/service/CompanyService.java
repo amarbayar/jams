@@ -34,6 +34,8 @@ public interface CompanyService
 
 	void deleteCompany(int id);
 
-
+	//10-22-14 by Amarbayar. A 
+	//Adding findOne() to retrieve a specific company
+//	Company getCompanyById(String id);
 }
 

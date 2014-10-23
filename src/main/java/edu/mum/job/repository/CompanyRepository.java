@@ -18,8 +18,7 @@ public interface CompanyRepository extends CrudRepository<Company, String> {
 	@Query("DELETE FROM COMPANY c WHERE c.name = 'ssss'")
 	public void deleteCompany(int id);
 	
-	
-	
+//	@Query("SELECT c FROM COMPANY c WHERE c.company_id = ?1")
+//	public Company getCompanyById(Integer id);
 
-	
 }

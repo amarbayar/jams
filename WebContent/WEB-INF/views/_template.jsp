@@ -24,7 +24,7 @@
 			<!-- Plug main content here -->
 			<!-- ====================== -->
 			<section class="container">
-			    <h1>Success Added</h1>
+			    
 			</section><!-- right col -->
 			<!-- ====================== -->
 			<!-- ====================== -->
