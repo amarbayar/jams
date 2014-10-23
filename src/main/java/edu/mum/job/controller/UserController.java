@@ -74,13 +74,15 @@ public class UserController {
 			System.out.println("Successful login " + userService.getUserDetailsByEmail(loginForm.getEmail()).getFirstName());
 			model.addAttribute("messageNotification","Login Successfull");
 			request.getSession().setAttribute("loggedUser", userService.getUserDetailsByEmail(loginForm.getEmail()));
+			return "home";
 		}
 		else{
 			System.out.println("Failed login");
 			model.addAttribute("messageNotification","Sorry!!! Login Failed");
 			request.getSession().removeAttribute("loggedUser");
+			return "/login";
 		}
-		return "home";
+		
 	}
 	
 	

@@ -31,6 +31,8 @@
                     <div class="form-group">
                         <input type="checkbox" name="remember_me"/> Remember me
                     </div>
+                    
+                    		${messageNotification}
                 </div>
                 <div class="footer">                                                               
                     <button type="submit" class="btn bg-olive btn-block">Sign me in</button>  
