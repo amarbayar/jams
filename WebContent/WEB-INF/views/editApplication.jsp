@@ -203,7 +203,7 @@ charset=ISO-8859-1">
 										<option value="${recruiter.id}" selected="selected">${recruiter.firstName}</option>
 									</c:when>
 									<c:otherwise>
-										<option value="${recruiter.id}">${recruiter.firstName}</option>
+										<option value="${recruiter.id}">${recruiter.firstName} ${recruiter.lastName}</option>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>

@@ -13,6 +13,6 @@ import edu.mum.job.domain.History;
 public interface HistoryService {
 	void addHistoryApplication(History history);
 	List<History> getAllHistory();
-	History getHistoryByAppId(String id);
+	List<History> getHistoryByAppId(String id);
 
 }

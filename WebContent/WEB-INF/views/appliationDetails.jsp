@@ -26,15 +26,20 @@ charset=ISO-8859-1">
 	<section class="container">	
 		<div class="row">
 		
-				<table id="example" class="table table-striped table-bordered">
-					    	<tr><th>Company</th><td>${applicationDetails.companyId}</td></tr>
-			            	<tr><th>Job Title</th><td>${applicationDetails.jobTitile}</td></tr>
-			                <tr><th>Status</th><td>${applicationDetails.phaseId}</td></tr>
-			                <tr><th>Phase</th><td>${applicationDetails.priority}</td></tr>
-			                <tr><th>Recruiter</th><td>${applicationDetails.recruiterId}</td></tr>			                
-			                <tr><th>Date</th><td>${applicationDetails.applicationDate}</td></tr>
-			                <tr><th>Refer</th><td>${applicationDetails.refer}</td></tr>	                
-			</table>
+					   
+					    	
+			            	Job Title: <b>${applicationDetails.jobTitile}</b>
+			            	<br />
+			            	Status: <b>${applicationDetails.status}</b>
+			                <br />
+			                Priority: <b>${applicationDetails.priority}</b>
+			                <br />
+			               
+			                	
+			                Date: <b>${applicationDetails.applicationDate}</b>
+			                <br>
+							Refer: <b>${applicationDetails.refer}</b>	                
+			
 		</div>
 		
 		
@@ -49,14 +54,24 @@ charset=ISO-8859-1">
 				<table id="example" class="table table-striped table-bordered">
 					<thead>
 			            <tr>
-			                <th>Phase</th>
-			                <th>Modification Date</th>			                
+			                <th>Phase Status</th>
+			                <th>Schedule</th>			                
 			            </tr>
 	        		</thead>
 	        		<tbody>
 	        		<c:forEach items="${histories}" var="history">
 	            	<tr>
-		                <td>${history.phase_id}</td>
+		                <td>
+		                	
+		                	
+								<c:forEach items="${phases}" var="phase">
+									<c:if test="${phase.phase_id == history.phase_id}">
+										${phase.phase_type}
+									</c:if>
+								</c:forEach>
+		                	
+		                	
+		                </td>
 		                <td>${history.phase_changed_date}</td>
 	            	</tr>
 	            	</c:forEach>
@@ -66,8 +81,59 @@ charset=ISO-8859-1">
 		</div>
 
 
+		<h3>Recruiter Details</h3>
 
 
+
+		<div class="row">
+				<table id="example" class="table table-striped table-bordered">
+					<thead>
+			            <tr>
+			                <th>Recruiter Name</th>
+			                <th>E-mail</th>
+			                <th>Address</th>
+			            </tr>
+	        		</thead>
+	        		<tbody>
+									<c:forEach items="${recruiters}" var="recruiter">			
+										<c:if test="${recruiter.id == applicationDetails.recruiterId}">
+											<tr><td>${recruiter.firstName} ${recruiter.lastName}</td>
+											<td>${recruiter.email}</td>
+											<td>${recruiter.address}</td>
+											</tr>
+										</c:if>
+									</c:forEach>
+	            	
+            	</tbody>
+			</table>
+		</div>
+
+
+		<h3>Company Details</h3>
+
+
+
+		<div class="row">
+				<table id="example" class="table table-striped table-bordered">
+					<thead>
+			            <tr>
+			                <th>Company</th>
+			                <th>Company Information</th>			                
+			            </tr>
+	        		</thead>
+	        		<tbody>
+								<c:forEach items="${companies}" var="company">
+									<c:if test="${company.id == applicationDetails.companyId}">
+										<td><a href="${company.url}">${company.name}</a></td>
+										<td>${company.information}</td>										
+									</c:if>
+								</c:forEach>
+		                	
+		                	
+		                	
+            	</tbody>
+			</table>
+		</div>
 
 
 

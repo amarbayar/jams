@@ -21,7 +21,7 @@ public class HistoryServiceImpl implements HistoryService {
 
 	
 	@Override
-	public History getHistoryByAppId(String id) {			
+	public List<History> getHistoryByAppId(String id) {			
 		return historyRepository.getHistoryByAppId(Integer.parseInt(id));
 	}
 	@Override

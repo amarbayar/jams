@@ -4,13 +4,13 @@
 		<table id="example" class="table table-striped table-bordered" cellspacing="0" width="75%">
 			<thead>
 				<tr>
-					<th>Company Id</th>
+					<th>Company</th>
 					<th>Job Title</th>
 					<th>Status</th>
 					<th>Phase</th>
+					<th>Priority</th>
 					<th>Recruiter</th>
-					<th>History</th>
-					<th>Date</th>
+					<th>Application Date</th>
 					<th>Refer</th>
 					<th>Action</th>			                
 				</tr>
@@ -39,8 +39,23 @@
 			${application.phaseId}
 			</td>
 			<td>${application.priority}</td>
-			<td>${application.recruiterId}</td>
+			
+			<td>
+			
+				<c:forEach items="${recruiters}" var="recruiter">			
+					<c:if test="${recruiter.id == application.recruiterId}">
+						${recruiter.firstName}
+					</c:if>
+				</c:forEach>
+				
+			
+				
+			</td>
+			
+			
 			<td>${application.applicationDate}</td>
+			
+			
 			<td>${application.refer}</td>
 			<td>
 			<a href="<spring:url value="/jobApplication/edit/${application.id}" />">Edit</a> |

@@ -1,7 +1,7 @@
 package edu.mum.job.controller;
 
 
-import java.util.Date;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -128,8 +128,11 @@ public class JobApplicationController {
 	
 	@RequestMapping(value="/details/{id}", method = RequestMethod.GET)
 	public String getApplicationDetails(Model model,@PathVariable("id") String applicationId){				
-		model.addAttribute("applicationDetails",jobApplicationService.getJobApplicationById(applicationId));
-		//model.addAttribute("histories",historyService.getHistoryByAppId(applicationId));		
+		model.addAttribute("applicationDetails",jobApplicationService.getJobApplicationById(applicationId));		
+		model.addAttribute("histories",historyService.getHistoryByAppId(applicationId));
+		model.addAttribute("companies",companyService.getAllCompany());
+		model.addAttribute("phases",phaseService.getAllPhase());
+		model.addAttribute("recruiters",recruiterService.getAllRecruiter());		
 		return "appliationDetails";
 	}
 	
@@ -175,19 +178,11 @@ public class JobApplicationController {
 		if(recruiters != null){			
 			String str = new String("");
 			for(Recruiter rec : recruiters){
-				str += "<option value="+rec.getId()+">"+rec.getFirstName()+"</option>";
+				str += "<option value="+rec.getId()+">"+rec.getFirstName()+" "+rec.getLastName()+"</option>";
 			}			
 			System.out.println(str);
 			return str;
 		}
-			
-				
-		
-		
 		return "<option value=''>------None------</opton>";
-
-	}
-
-	
-
+	}	
 }

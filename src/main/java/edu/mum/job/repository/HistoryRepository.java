@@ -18,7 +18,7 @@ public interface HistoryRepository extends JpaRepository<History, String>{
 	
 	//@Query("SELECT p FROM HISTORY p WHERE p.phase_changed_date = :phaseID")
 	@Query("SELECT a FROM HISTORY a where a.app_id = ?1")
-	public History getHistoryByAppId(Integer id);
+	public List<History> getHistoryByAppId(Integer id);
 	
 	
 	
