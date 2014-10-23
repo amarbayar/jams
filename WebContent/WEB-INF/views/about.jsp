@@ -2,7 +2,7 @@
 <html>
 <head>
 	<%@ include file="_link_href.jsp" %>
-	<title>New Company</title>	
+	<title>About Us</title>	
 </head>
  
  <body class="skin-blue">
@@ -13,22 +13,20 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Dashboard
+					About Us
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="/FinalProject/home"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li class="active">Dashboard</li>
+					<li class="active">About Us</li>
 				</ol>
 				
 			</section>
 			<!-- Plug main content here -->
 			<!-- ====================== -->
 			<section class="container">
-			    <fieldset>
-				<legend>About</legend>
 				<h3>Open source Project</h3>
 				<p>
-				It an open source project for MUM students to manage schedule while there are ready for applying Job.
+				It is an open source project for MUM students to manage schedule while there are ready for applying Job.
 				We use here, Spring MVC and Hibernate to develop this site.
 				<br /> 
 				Please, check <a href="https://github.com/amarbayar/jams/">Git Hub</a> to Download latest code.
@@ -36,7 +34,6 @@
 				<br />
 				If you are facing problem you are welcome to contact us. Please visit <a href="contact">Contact Us</a> page to contact developers.
 				</p>
-			</fieldset>
 			</section><!-- right col -->
 			<!-- ====================== -->
 			<!-- ====================== -->
@@ -45,6 +42,7 @@
 	</div>
 </body>        
 <%@ include file="_scripts.jsp" %>
+<%@ include file="_footer.jsp" %>
 </body>
 </html>
 

@@ -33,4 +33,14 @@ public class HomeController {
 		model.addAttribute("events", eventService.getEvents());
 		return "home";
 	}
+	
+	@RequestMapping(value = "/about")
+	public String getAboutPage(Model model){
+		return "about";
+	}
+	
+	@RequestMapping(value = "/contact")
+	public String getContactPage(Model model){
+		return "contact";
+	}
 }

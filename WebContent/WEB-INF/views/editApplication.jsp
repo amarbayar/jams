@@ -3,6 +3,7 @@
 <head>
 	<%@ include file="_link_href.jsp" %>
 	<%@ include file="_scripts.jsp" %>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
  	<script type="text/javascript">
 		 $(document).ready(function() {
 		  $('#companyId').keyup(function() {
@@ -270,6 +271,7 @@
 			
 		</aside>
 	</div>    
+	<%@ include file="_footer.jsp" %>
 </body>
 </html>
 

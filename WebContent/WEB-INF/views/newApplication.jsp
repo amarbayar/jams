@@ -2,8 +2,8 @@
 <html>
 <head>
 	<%@ include file="_link_href.jsp" %> 
-	<%@ include file="_scripts.jsp" %> 
-	
+	<jsp:include page="_scripts.jsp" /> 
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
  	<script type="text/javascript">
 		 $(document).ready(function() {
 		  $('#companyId').keyup(function() {
@@ -219,6 +219,6 @@
 			
 		</aside>
 	</div>
-</body>        
+<%@ include file="_footer.jsp" %>
 </body>
 </html>

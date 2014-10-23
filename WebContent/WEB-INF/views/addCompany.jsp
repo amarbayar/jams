@@ -73,5 +73,6 @@
 	</div>
 </body>        
 <%@ include file="_scripts.jsp" %>
+<%@ include file="_footer.jsp" %>
 </body>
 </html>

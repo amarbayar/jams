@@ -2,7 +2,7 @@
 <html>
 <head>
 	<%@ include file="_link_href.jsp" %>
-	<title>New Company</title>	
+	<title>Contact Us</title>	
 </head>
  
  <body class="skin-blue">
@@ -13,26 +13,20 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Dashboard
+					Contact Us
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="/FinalProject/home"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li class="active">Dashboard</li>
+					<li class="active">Contact Us</li>
 				</ol>
 				
 			</section>
 			<!-- Plug main content here -->
 			<!-- ====================== -->
 			<section class="container">
-			    <fieldset>
-				<legend>Contact Us</legend>
-				<h3>Contact with Developers</h3>
-				<p>
-				Always Open For Contact
-				</p>
-				
 				<section class="container">
 					<div class="row">
+						<br><br>
 							<div class="col-sm-4 col-md-3" style="padding-bottom: 15px">
 								<div class="thumbnail">
 								<img src="/FinalProject/resource/contact/1.png" alt="image"  style = "width:100%"/>
@@ -47,23 +41,34 @@
 							</div>
 							<div class="col-sm-4 col-md-3" style="padding-bottom: 15px">
 								<div class="thumbnail">
-								<img src="/FinalProject/resource/contact/1.png" alt="image"  style = "width:100%"/>
+								<img src="/FinalProject/resource/contact/adiya.jpg" alt="image"  style = "width:100%"/>
 									<div class="caption">
-										<h3>Md Shohrab</h3>
+										<h3>Adiya. B</h3>
 										<p>Developer</p>
 										<p>June Entry 2014</p>
-										<p>Email: md.shohrab.cse@gmail.com</p>
+										<p>Email: adiyafre@gmail.com</p>
 			
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="row">
 								<div class="col-sm-4 col-md-3" style="padding-bottom: 15px">
 									<div class="thumbnail">
-									<img src="/FinalProject/resource/contact/1.png" alt="image"  style = "width:100%"/>
+									<img src="/FinalProject/resource/contact/sadak.jpg" alt="image"  style = "width:100%"/>
 										<div class="caption">
-											<h3>Md Shohrab</h3>
+											<h3>Sadakul. I</h3>
+											<p>Developer</p>
+											<p>June Entry 2014</p>
+											<p>Email: sadakulbd@gmail.com</p>
+				
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-3" style="padding-bottom: 15px">
+									<div class="thumbnail">
+									<img src="/FinalProject/resource/contact/amar.jpg" alt="image"  style = "width:100%"/>
+										<div class="caption">
+											<h3>Amarbayar. A</h3>
 											<p>Developer</p>
 											<p>June Entry 2014</p>
 											<p>Email: md.shohrab.cse@gmail.com</p>
@@ -71,21 +76,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4 col-md-3" style="padding-bottom: 15px">
-									<div class="thumbnail">
-									<img src="/FinalProject/resource/contact/1.png" alt="image"  style = "width:100%"/>
-										<div class="caption">
-											<h3>Md Shohrab</h3>
-											<p>Developer</p>
-											<p>June Entry 2014</p>
-											<p>Email: md.shohrab.cse@gmail.com</p>
-				
-										</div>
-									</div>
-								</div>
-						</div>
 				</section>
-				</fieldset>
 			</section><!-- right col -->
 			<!-- ====================== -->
 			<!-- ====================== -->
@@ -94,5 +85,6 @@
 	</div>
 </body>        
 <%@ include file="_scripts.jsp" %>
+<%@ include file="_footer.jsp" %>
 </body>
 </html>
